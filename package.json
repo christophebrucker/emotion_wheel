@@ -1,0 +1,11 @@
+{
+  "name": "emotion_wheel",
+  "version": "1.0.0",
+  "description": "This emotion wheel is designed to help identify emotions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chris Brucker <chris@nammu.io> (https://www.nammu.io/)",
+  "license": "MIT"
+}
