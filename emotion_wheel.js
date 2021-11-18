@@ -6,7 +6,12 @@ document.body.appendChild(wheel);
 
 //change pointer when mouse is over the wheel !
 wheel.addEventListener("mouseover", (event) => {
-  document.body.style.cursor = "url(http://bringerp.free.fr/Files/RotMG/cursor.gif), pointer"
+  document.body.style.cursor = "grab";
+  wheel.style.transform = 'rotate(90deg)';
+});
+wheel.addEventListener("mouseleave", (event) => {
+  document.body.style.cursor = "pointer"
+  wheel.style.transform = 'rotate(-90deg)';
 });
 
 // set emotions
