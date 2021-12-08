@@ -1,4 +1,4 @@
-// display the wheel !!
+// display the wheel
 document.body.insertAdjacentHTML("afterbegin", "<h1>How do you feel ?</h1>");
 const wheel = document.createElement('img');
 wheel.src = 'wheel.png';
