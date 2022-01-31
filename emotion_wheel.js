@@ -5,8 +5,7 @@ wheel.src = 'wheel.png';
 wheel.style.width = '250' + 'px';
 document.body.appendChild(wheel);
 
-
-// set emotions
+// set emotions object
 const emotions = {
   // red
   angry: { mistrust: ['exhaustion','resentment'],
@@ -64,5 +63,3 @@ const emotions = {
         hurt: ['pain','disappointment']
   },
 };
-
-console.log (emotions.happy.care[0]);
