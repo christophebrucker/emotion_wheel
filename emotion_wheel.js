@@ -1,9 +1,5 @@
-//display the wheel !
-document.body.insertAdjacentHTML("afterbegin", "<h1>How do you feel ?</h1>");
-const wheel = document.createElement('img');
-wheel.src = 'wheel.png';
-wheel.style.width = '250' + 'px';
-document.body.appendChild(wheel);
+//the wheel follows the cursor
+('#wheel').followCursor();
 
 // set emotions object
 const emotions = {
