@@ -64,6 +64,30 @@ const emotions = {
   },
 };
 
-document.getElementById("emotion").innerHTML = 5 + 6;
-
-
+// make the cursor rotate the wheel image
+var mouseXY = {};
+$( document ).on("mousemouse", function( event ) {
+  mouseXY.X = event.pageX;
+  mouseXY.Y = event.pageY;
+});
+var iWheel = $("#wheel");
+var prevXY = {X: null, Y: null};
+var wheelInterval = setInterval(function()
+{
+  if(prevXY.Y != mouseXY.Y || prevXY.X != mouseXY.X && (PREVXY.Y != null || prevXY.X != null)) {
+    var wheelXY = iWheel.position();
+    var diffX = wheelXY.left - mouseXY.X;
+    var diffY = wheelXY.top - mouseXY.Y;
+    var tan = diffX / diffY;
+    var atan = Math.atan(tan) * 180 / Math.PI;
+    if (diffY > 0 && diffX > 0) {
+      atan += 180;
+    }
+    else if (diffY < 0 && diffX > 0) {
+      atan -= 180;
+    }
+    prevXY.X = mouseXY.X;
+    prevXY.Y = mouseXY.Y;
+    iWheel.css({transform: "rotate(" +atan + "deg)"});
+  }
+}, 10);
