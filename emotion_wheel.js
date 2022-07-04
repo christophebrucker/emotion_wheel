@@ -1,11 +1,11 @@
-//the wheel follows the cursor
-('#wheel').followCursor();
 
 // set emotions object
 // we define the emotions as below
 // an emotion is defined by three words
 // ex: afraid / anxious / worry
-
+console.log("Hello Chris");
+const emotion = document.querySelector("#emotion");
+emotion.insertAdjacentHTML("beforeend", "<h2>Hi Chris</h2>");
 const emotions = {
   // red
   angry: { mistrust: ['exhaustion','resentment'],
@@ -64,7 +64,7 @@ const emotions = {
   },
 };
 
-// make the cursor rotate the wheel image
+// make the wheel rotate with cursor
 var mouseXY = {};
 $( document ).on("mousemouse", function( event ) {
   mouseXY.X = event.pageX;
