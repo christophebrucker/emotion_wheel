@@ -2,6 +2,10 @@
 ('#wheel').followCursor();
 
 // set emotions object
+// we define the emotions as below
+// an emotion is defined by three words
+// ex: afraid / anxious / worry
+
 const emotions = {
   // red
   angry: { mistrust: ['exhaustion','resentment'],
@@ -59,3 +63,7 @@ const emotions = {
         hurt: ['pain','disappointment']
   },
 };
+
+document.getElementById("emotion").innerHTML = 5 + 6;
+
+
