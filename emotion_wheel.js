@@ -3,6 +3,7 @@
 // we define the emotions as below
 // ex: afraid / anxious / worry
 // the emotion is defined by the three words
+
 const emotions = {
   // red
   angry: { mistrust: ['exhaustion','resentment'],
@@ -61,12 +62,19 @@ const emotions = {
   },
 };
 
+// Display Title
+document.write('<h1 style = "text-align:center">How do you feel today?</h1>');
+// Display the emotions in three words
+document.write(`<h2 style = "text-align:center">${emotions.sad.hurt[0]} / ${emotions.sad.hurt[0]} / ${emotions.sad.hurt[0]}</h2>`);
+// Display the cursor
+document.write('<div style = "text-align:center"> <img src = "triangle-selector.png"></div>');
 // make the wheel rotate with cursor
 var cv = document.createElement('canvas');
 var ctx = cv.getContext('2d');
 cv.width = 1224;
 cv.height = 768;
 document.body.appendChild(cv);
+
 
 var centerX = 300, centerY = 200;
 
