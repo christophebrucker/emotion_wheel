@@ -1,11 +1,8 @@
 
 // set emotions object
 // we define the emotions as below
-// an emotion is defined by three words
 // ex: afraid / anxious / worry
-console.log("Hello Chris");
-const emotion = document.querySelector("#emotion");
-emotion.insertAdjacentHTML("beforeend", "<h2>Hi Chris</h2>");
+// the emotion is defined by the three words
 const emotions = {
   // red
   angry: { mistrust: ['exhaustion','resentment'],
@@ -65,29 +62,34 @@ const emotions = {
 };
 
 // make the wheel rotate with cursor
-var mouseXY = {};
-$( document ).on("mousemouse", function( event ) {
-  mouseXY.X = event.pageX;
-  mouseXY.Y = event.pageY;
-});
-var iWheel = $("#wheel");
-var prevXY = {X: null, Y: null};
-var wheelInterval = setInterval(function()
-{
-  if(prevXY.Y != mouseXY.Y || prevXY.X != mouseXY.X && (PREVXY.Y != null || prevXY.X != null)) {
-    var wheelXY = iWheel.position();
-    var diffX = wheelXY.left - mouseXY.X;
-    var diffY = wheelXY.top - mouseXY.Y;
-    var tan = diffX / diffY;
-    var atan = Math.atan(tan) * 180 / Math.PI;
-    if (diffY > 0 && diffX > 0) {
-      atan += 180;
-    }
-    else if (diffY < 0 && diffX > 0) {
-      atan -= 180;
-    }
-    prevXY.X = mouseXY.X;
-    prevXY.Y = mouseXY.Y;
-    iWheel.css({transform: "rotate(" +atan + "deg)"});
-  }
-}, 10);
+var cv = document.createElement('canvas');
+var ctx = cv.getContext('2d');
+cv.width = 1224;
+cv.height = 768;
+document.body.appendChild(cv);
+
+var centerX = 300, centerY = 200;
+
+var arrow = new Image();
+arrow.onload = function () {
+  drawArrow(0);
+};
+arrow.src = 'wheel.png';
+
+// NB: rotations go clockwise, and the Y axis goes down
+function drawArrow(angle) {
+  ctx.clearRect(0, 0, cv.width, cv.height);
+  ctx.save();
+  ctx.translate(centerX, centerY);
+  ctx.rotate(-Math.PI / 2);   // correction for image starting position
+  ctx.rotate(angle);
+  ctx.drawImage(arrow, -arrow.width / 2, -arrow.height / 2);
+  ctx.restore();
+}
+
+document.onmousemove = function (e) {
+  var dx = e.pageX - centerX;
+  var dy = e.pageY - centerY;
+  var theta = Math.atan2(dy, dx);
+  drawArrow(theta);
+};
