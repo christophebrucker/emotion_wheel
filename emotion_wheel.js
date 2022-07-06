@@ -3,70 +3,84 @@
 // we define the emotions as below
 // ex: afraid / anxious / worry
 // the emotion is defined by the three words
+
 const emotions = {
   // red
-  angry: { mistrust: ['exhaustion','resentment'],
-           shame: ['humiliation', 'embarrasment'],
-           jealous: ['indignant', 'bitter'],
-           mad: ['furious', 'rage'],
-           irritation: ['aggressive', 'hostile'],
-           frustration: ['tense', 'annoyance'],
-           distant: ['withdrawn', 'numb'],
-           critical: ['skeptical', 'dismissive']
+  "angry": { "mistrust": ['exhaustion','resentment'],
+           "shame": ['humiliation', 'embarrasment'],
+           "jealous": ['indignant', 'bitter'],
+           "mad": ['furious', 'rage'],
+           "irritation": ['aggressive', 'hostile'],
+           "frustration": ['tense', 'annoyance'],
+           "distant": ['withdrawn', 'numb'],
+           "critical": ['skeptical', 'dismissive']
   },
   // green
-  disgusted: { disapproval: ['judgement','shock'],
-             disdain: ['revulsion', 'yucky'],
-             sick: ['nausea', 'awful'],
-             repulsion: ['horror', 'hesitance']
+  "disgusted": { "disapproval": ['judgement','shock'],
+            "disdain": ['revulsion', 'yucky'],
+            "sick": ['nausea', 'awful'],
+             "repulsion": ['horror', 'hesitance']
   },
   // black
-  afraid: { nervous: ['tight', 'vulnerable'],
-            shaky: ['trembling', 'unstable'],
-            weak: ['hollow', 'empty'],
-            insecure: ['small', 'inferior'],
-            anxious: ['overwhelm','worry'],
-            scared: ['helpless', 'fearful']
+  "afraid": { "nervous": ['tight', 'vulnerable'],
+            "shaky": ['trembling', 'unstable'],
+            "weak": ['hollow', 'empty'],
+            "insecure": ['small', 'inferior'],
+            "anxious": ['overwhelm','worry'],
+            "scared": ['helpless', 'fearful']
   },
   // purple
-  bad: { boredom: ['absent','apathy'],
-        busy: ['buzzy','pressure'],
-        stress: ['overwhelm', 'out of control'],
-        tired: ['sleepy', 'blurry']
+  "bad": { "boredom": ['absent','apathy'],
+        "busy": ['buzzy','pressure'],
+        "stress": ['overwhelm', 'out of control'],
+        "tired": ['sleepy', 'blurry']
   },
   // orange
-  surprised: { shock: ['uncomfortable','dismay'],
-        confusion: ['unclear','dizzy'],
-        amazement: ['astonishment', 'awe'],
-        excitement: ['eager', 'energetic']
+  "surprised": { "shock": ['uncomfortable','dismay'],
+        "confusion": ['unclear','dizzy'],
+        "amazement": ['astonishment', 'awe'],
+        "excitement": ['eager', 'energetic']
   },
   // yellow
-  happy: { playful: ['arousal', 'mischevious'],
-          content: ['free', 'joy'],
-          curiosity: ['interest', 'willingness'],
-          proud: ['strong','confident'],
-          acceptance: ['respect','importance'],
-          powerful: ['courageous','creative'],
-          care: ['peaceful','gratitude'],
-          trust: ['tenderness', 'safety'],
-          hope: ['openness','inspiration']
+  "happy": { "playful": ['arousal', 'mischevious'],
+          "content": ['free', 'joy'],
+          "curiosity": ['interest', 'willingness'],
+          "proud": ['strong','confident'],
+          "acceptance": ['respect','importance'],
+          "powerful": ['courageous','creative'],
+          "care": ['peaceful','gratitude'],
+          "trust": ['tenderness', 'safety'],
+          "hope": ['openness','inspiration']
   },
   // dark blue
-  sad: { lonely: ['achy', 'longing'],
-        vulnerable: ['shaky', 'fragile'],
-        despair: ['grief','powerless'],
-        guilty: ['remorseful','shame'],
-        depression: ['heavy','weight'],
-        hurt: ['pain','disappointment']
+  "sad": { "lonely": ['achy', 'longing'],
+        "vulnerable": ['shaky', 'fragile'],
+        "despair": ['grief','powerless'],
+        "guilty": ['remorseful','shame'],
+        "depression": ['heavy','weight'],
+        "hurt": ['pain','disappointment']
   },
-};
+}
 
+// funtion to retrieve the key of a value in an object
+function getKeyByValue(object, value) {
+  return Object.keys(object).find(key => object[key] === value);
+}
+// setting the emotions object as a json file
+const emotions_string = JSON.stringify(emotions);
+// Display Title
+document.write('<h1 style = "text-align:center">How do you feel today?</h1>');
+// Display the emotions in three words
+document.write(`<h2 style = "text-align:center">HAPPY / POWERFUL / ${emotions.happy.powerful[1].toUpperCase()}</h2>`);
+// Display the cursor
+document.write('<div style = "text-align:center"> <img src = "triangle-selector.png"></div>');
 // make the wheel rotate with cursor
 var cv = document.createElement('canvas');
 var ctx = cv.getContext('2d');
 cv.width = 1224;
 cv.height = 768;
 document.body.appendChild(cv);
+
 
 var centerX = 300, centerY = 200;
 
